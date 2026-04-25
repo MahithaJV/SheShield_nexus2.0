@@ -7,6 +7,8 @@ import { SafeProvider, useSafe } from './context/SafeContext';
 import { Login } from './pages/auth/Login';
 import { Signup } from './pages/auth/Signup';
 import ManageContacts from './pages/ManageContacts';
+import Notifications from './pages/Notifications';
+import SettingsPage from './pages/Settings';
 
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
   const { token } = useSafe();
@@ -170,8 +172,8 @@ const Dashboard = () => {
       <nav className="fixed bottom-0 left-0 right-0 p-4 bg-[#0a0a0c]/80 backdrop-blur-xl border-t border-white/5 flex justify-around items-center z-50">
         <button onClick={() => navigate('/dashboard')} className="p-3 text-pink-500"><Home size={28} /></button>
         <button onClick={() => navigate('/map')} className="p-3 text-gray-500"><Navigation size={28} /></button>
-        <button className="p-3 text-gray-500"><Bell size={28} /></button>
-        <button className="p-3 text-gray-500"><Settings size={28} /></button>
+        <button onClick={() => navigate('/notifications')} className="p-3 text-gray-500"><Bell size={28} /></button>
+        <button onClick={() => navigate('/settings')} className="p-3 text-gray-500"><Settings size={28} /></button>
       </nav>
     </div>
   );
@@ -188,6 +190,8 @@ function App() {
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
           <Route path="/map" element={<PrivateRoute><MapNavigation /></PrivateRoute>} />
           <Route path="/contacts" element={<PrivateRoute><ManageContacts /></PrivateRoute>} />
+          <Route path="/notifications" element={<PrivateRoute><Notifications /></PrivateRoute>} />
+          <Route path="/settings" element={<PrivateRoute><SettingsPage /></PrivateRoute>} />
         </Routes>
       </Router>
     </SafeProvider>
