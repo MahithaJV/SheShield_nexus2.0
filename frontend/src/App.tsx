@@ -123,13 +123,16 @@ const Dashboard = () => {
 
         {/* Status Grid */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
+          <button 
+            onClick={() => navigate('/map')}
+            className="p-4 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm text-left hover:bg-white/10 transition-all"
+          >
             <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center mb-3">
               <MapPin size={20} className="text-green-500" />
             </div>
             <h3 className="text-sm text-gray-400 font-medium">Safe Zone</h3>
             <p className="text-lg font-bold">Downtown</p>
-          </div>
+          </button>
           <button 
             onClick={() => navigate('/contacts')}
             className="p-4 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm text-left hover:bg-white/10 transition-all"
@@ -155,7 +158,10 @@ const Dashboard = () => {
                 <p className="text-xs text-gray-400">Share danger in your area</p>
               </div>
             </button>
-            <button className="w-full p-5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4 hover:bg-white/10 transition-colors">
+            <button 
+              onClick={() => navigate('/map')}
+              className="w-full p-5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4 hover:bg-white/10 transition-colors"
+            >
               <div className="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center">
                 <Navigation size={24} className="text-pink-500" />
               </div>
